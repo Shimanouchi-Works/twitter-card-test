@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+
+    <div id="app">
+      <p>{{ message }}</p>
+
+	    <ul>
+	      <!-- Twitter -->
+	      <li>
+	        <a :href="twUrl" target="_blank"><img src="tw.png"  width="64" height="64"></a>
+	      </li>
+	    </ul>
+    </div>
+
+
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: function () {
+          return {
+	          message: "Vue#######.js",
+	          twUrl : '',
+	      }
+        },
+        methods: {
+          createSnsUrl(){
+			// 現在のurlをエンコード
+//			var url = encodeURIComponent(location.href);
+			// ページ文言(タイトルとかdescription) ここではdescriptionを使用
+//			var txt = encodeURIComponent(document.querySelector("meta[name='description']").getAttribute('content'));
+			// Twitter用のurl作成 ハッシュタグもtxtを使用
+//			this.twUrl = 'https://twitter.com/intent/tweet?text=' + txt + '&hashtags=' + txt + '&url=' + url;
+//			this.twUrl = 'https://twitter.com/intent/tweet?text=' + "ツイート内容" + '&hashtags=' + txt + '&url=' + url;
+//			this.twUrl = 'https://twitter.com/intent/tweet';
+
+
+			var tags = "aaa,bbb,ccc";
+			let url = 'https://twitter.com/intent/tweet?';
+			url += 'text' + "ツイート内容";
+			url += '&hashtags=' + tags;
+			url += '&url=' + 'https://shimanouchi-works.github.io/twitter-card-test/';
+
+
+			this.twUrl = url;
+          },
+        },
+		 mounted() {
+            this.createSnsUrl();
+		},
+      })
+    </script>
+
+
+
+  </body>
+</html>
+
+ 
