@@ -16,6 +16,16 @@
 	      <li>
 	        <a :href="twUrl" target="_blank"><img src="tw.png"  width="64" height="64"></a>
 	      </li>
+
+	      <!-- Twitter -->
+	      <li>
+	        <a :href="twUrlLarge" target="_blank"><img src="tw.png"  width="64" height="64"></a>
+	      </li>
+
+	      <!-- Twitter -->
+	      <li>
+	        <a :href="twUrlNormal" target="_blank"><img src="tw.png"  width="64" height="64"></a>
+	      </li>
 	    </ul>
     </div>
 
@@ -25,8 +35,10 @@
         el: "#app",
         data: function () {
           return {
-	          message: "Vue#######.js",
+	          message: "twitter care test",
 	          twUrl : '',
+	          twUrlLarge : '',
+	          twUrlNormal : '',
 	      }
         },
         methods: {
@@ -45,10 +57,11 @@
 			let url = 'https://twitter.com/intent/tweet?';
 			url += 'text' + "ツイート内容";
 			url += '&hashtags=' + tags;
-			url += '&url=' + 'https://shimanouchi-works.github.io/twitter-card-test/';
 
+			this.twUrl = url + '&url=' + 'https://shimanouchi-works.github.io/twitter-card-test/';
+			this.twUrlLarge = url + '&url=' + 'https://shimanouchi-works.github.io/twitter-card-test/large/index.html';
+			this.twUrlNormal = url + '&url=' + 'https://shimanouchi-works.github.io/twitter-card-test/normal/index.html';
 
-			this.twUrl = url;
           },
         },
 		 mounted() {
